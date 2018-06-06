@@ -304,8 +304,8 @@ endif
 #                           Build Config
 #
 #########################################################################
-BUILD_WITH_ROOT_CONFIG :=false
-BUILD_WITH_GAPPS_CONFIG :=false
+BUILD_WITH_ROOT_CONFIG :=true
+BUILD_WITH_GAPPS_CONFIG :=true
 BUILD_WITH_DVB_APP := false
 
 ifeq ($(BUILD_WITH_DVB_APP),true)

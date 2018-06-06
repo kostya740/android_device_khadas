@@ -324,8 +324,8 @@ endif
 #                              Build Config
 #
 #########################################################################
-BUILD_WITH_GAPPS_CONFIG :=false
-BUILD_WITH_ROOT_CONFIG :=false
+BUILD_WITH_GAPPS_CONFIG :=true
+BUILD_WITH_ROOT_CONFIG :=true
 
 #########################################################################
 #
