@@ -98,6 +98,12 @@ service.adb.tcp.port=5555
 
 sys.open.deepcolor=true
 
+#gps
+ro.kernel.android.gps=ttyS4
+ro.kernel.android.gps.speed=9600
+ro.kernel.android.gps.max_rate=1
+
+ro.khadas.systembar.voiceicon=true
 
 ######## UBOOTENV VARIBLES - r/w as system properties ##########
 #

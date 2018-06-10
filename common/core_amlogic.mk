@@ -72,6 +72,7 @@ PRODUCT_PACKAGES += \
     audio_policy.default \
     audio.dia_remote.default \
     audio.huitong.default \
+    gps.default \
     local_time.default \
     vibrator.default \
     power.default
@@ -157,7 +158,10 @@ PRODUCT_PACKAGES += \
     Launcher2 \
     MusicFX \
     LatinIME \
-    Music
+    Music \
+    RootExplorer \
+    GPSTest \
+    TotalCommander
 endif
 
 ifeq ($(TARGET_BUILD_LIVETV), true)
@@ -326,6 +330,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
 	FactoryTest
+
+PRODUCT_PROPERTY_OVERRIDES += \
+       persist.sys.status.bar.bottom=true \
+       persist.sys.status.bar.upper=true
 
 PRODUCT_PACKAGES += \
 	setbootenv \
