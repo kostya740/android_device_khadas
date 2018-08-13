@@ -42,6 +42,8 @@ on boot
 
 #UART
     chmod 666 /dev/ttyS4
+    chmod 666 /dev/ttyACM0
+    chmod 666 /dev/ttyACM1
 
 #uboot env
     chmod 666 /dev/block/env
