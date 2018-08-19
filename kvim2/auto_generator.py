@@ -3,6 +3,9 @@ import sys
 import os
 import re
 
+copy_template = """PRODUCT_COPY_FILES += %s/%s.apk:system/preinstall/%s.apk
+"""
+
 templet = """include $(CLEAR_VARS)
 LOCAL_MODULE := %s
 LOCAL_MODULE_CLASS := APPS
@@ -32,14 +35,15 @@ def main(argv):
         makefile = file(makefile_path, 'w')
         includefile = file(include_path, 'w')
 
-        makefile.write("LOCAL_PATH := $(my-dir)\n\n")
+        makefile.write("LOCAL_PATH := $(call my-dir)\n\n")
         for root, dirs, files in os.walk(preinstall_dir):
             for file_name in files:
                 p = re.compile(r'\S*(?=.apk\b)')
                 found = p.search(file_name)
                 if found:
-                    makefile.write(templet %(found.group(), argv[1]))
-                    includefile.write('PRODUCT_PACKAGES += %s\n' %found.group())
+                    #makefile.write(templet %(found.group(), argv[1]))
+                    includefile.write(copy_template %(preinstall_dir, found.group(), found.group()))
+                    #includefile.write('PRODUCT_PACKAGES += %s\n' %found.group())
         makefile.close()
         includefile.close()
 
