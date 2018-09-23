@@ -21,6 +21,10 @@ on post-fs-data
     insmod /system/lib/mali.ko mali_debug_level=2 mali_shared_mem_size=0x40000000
     # ko for dolby vision
     insmod /system/lib/dovi.ko
+    # ko for magnetometer hmc5843
+    insmod /system/lib/kfifo_buf.ko
+    insmod /system/lib/industrialio-triggered-buffer.ko
+    insmod /system/lib/hmc5843.ko
 
 on boot
     setprop ro.radio.noril true
@@ -50,6 +54,7 @@ on boot
     write /sys/module/amports/parameters/def_vstreambuf_sizeM 10
     write /sys/module/amports/parameters/def_4k_vstreambuf_sizeM 15
 
+    chmod 0666 /dev/i2c-1
     chmod 0666 /dev/i2c-2
     chmod 0666 /dev/dvb0.dsc0
     chmod 0666 /dev/dvb0.dsc1

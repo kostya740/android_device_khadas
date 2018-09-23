@@ -41,6 +41,9 @@ define cp-modules
 #	cp $(KERNEL_OUT)/../hardware/amlogic/pmu/aml_pmu_dev.ko $(TARGET_OUT)/lib/
 #	cp $(shell pwd)/hardware/amlogic/thermal/aml_thermal.ko $(TARGET_OUT)/lib/
 #	cp $(KERNEL_OUT)/../hardware/amlogic/nand/amlnf/aml_nftl_dev.ko $(PRODUCT_OUT)/root/boot/
+	-cp $(KERNEL_OUT)/drivers/iio/kfifo_buf.ko $(TARGET_OUT)/lib/
+	-cp $(KERNEL_OUT)/drivers/iio/industrialio-triggered-buffer.ko $(TARGET_OUT)/lib/
+	-cp $(KERNEL_OUT)/drivers/staging/iio/magnetometer/hmc5843.ko $(TARGET_OUT)/lib/
 endef
 
 $(KERNEL_OUT):
