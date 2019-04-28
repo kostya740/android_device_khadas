@@ -170,6 +170,17 @@ BOARD_HAVE_BLUETOOTH := true
 MULTI_BLUETOOTH_SUPPORT := true
 include device/khadas/common/bluetooth.mk
 
+#########################################################################
+#
+#                                                GPS
+#
+#########################################################################
+
+BOARD_HAS_GPS_HARDWARE := true
+ifeq ($(BOARD_HAS_GPS_HARDWARE), true)
+PRODUCT_PACKAGES += \
+	gps.default
+endif
 
 #########################################################################
 #
@@ -304,8 +315,8 @@ endif
 #                           Build Config
 #
 #########################################################################
-BUILD_WITH_ROOT_CONFIG :=false
-BUILD_WITH_GAPPS_CONFIG :=false
+BUILD_WITH_ROOT_CONFIG :=true
+BUILD_WITH_GAPPS_CONFIG :=true
 BUILD_WITH_DVB_APP := false
 
 ifeq ($(BUILD_WITH_DVB_APP),true)

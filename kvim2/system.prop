@@ -19,6 +19,11 @@ ro.radio.noril=false
 #if need pppoe
 ro.net.pppoe=true
 
+#gps
+ro.kernel.android.gps=ttyS4
+ro.kernel.android.gps.speed=57600
+ro.kernel.android.gps.max_rate=5
+
 #the prop is used for enable or disable
 #DD+/DD force output when HDMI EDID is not supported
 #by default,the force output mode is enabled.
