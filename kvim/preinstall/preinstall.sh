@@ -3,6 +3,9 @@
 MARK=/data/local/symbol_thirdpart_apks_installed
 PKGS=/system/preinstall/
 
+# Execute files in /etc/init.d during boot
+/system/bin/logwrapper /system/xbin/busybox run-parts /system/etc/init.d/
+
 if [ ! -e $MARK ]; then
 echo "booting the first time, so pre-install some APKs."
 
