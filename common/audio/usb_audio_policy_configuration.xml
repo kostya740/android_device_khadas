@@ -30,14 +30,17 @@
                      samplingRates="44100" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </devicePort>
         <devicePort tagName="USB Device Out" type="AUDIO_DEVICE_OUT_USB_DEVICE" role="sink"/>
-        <devicePort tagName="USB Device In" type="AUDIO_DEVICE_IN_USB_DEVICE" role="source"/>
+        <devicePort tagName="USB Device In" type="AUDIO_DEVICE_IN_USB_DEVICE" role="source">
+            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                     samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000" channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK,AUDIO_CHANNEL_IN_VOICE_UPLINK,AUDIO_CHANNEL_IN_DNLINK"/>
+        </devicePort>
     </devicePorts>
     <routes>
         <route type="mix" sink="USB Host Out"
                sources="usb_accessory output"/>
         <route type="mix" sink="USB Device Out"
                sources="usb_device output"/>
-        <route type="mix" sink="usb_device input"
-               sources="USB Device In"/>
+        <route type="mix" sink="USB Device In"
+               sources="usb_device input"/>
     </routes>
 </module>
